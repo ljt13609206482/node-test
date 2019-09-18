@@ -19,8 +19,8 @@ app.use(async (ctx, next) => {
 });
 
 var options = {
-    key: fs.readFileSync('./2_www.xuehaiwuya.club.pem'),  //私钥文件路径
-    cert: fs.readFileSync('./2_www.xuehaiwuya.club.crt')  //证书文件路径
+    key: fs.readFileSync('./private_key.pem'),  //私钥文件路径
+    cert: fs.readFileSync('./file.crt')  //证书文件路径
 };
 
 // parse request body:
