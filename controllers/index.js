@@ -1,26 +1,30 @@
-var fn_index = async (ctx, next) => {
-    ctx.response.body = `<h1>Index</h1>
-        <form action="/signin" method="post">
-            <p>Name: <input name="name" value="koa"></p>
-            <p>Password: <input name="password" type="password"></p>
-            <p><input type="submit" value="Submit"></p>
-        </form>`;
-};
+const Sequelize = require('sequelize');
+const sequelize = require('../sequelize-object');
 
-var fn_signin = async (ctx, next) => {
-    var
-        name = ctx.request.body.name || '',
-        password = ctx.request.body.password || '';
-    console.log(`signin with name: ${name}, password: ${password}`);
-    if (name === 'koa' && password === '12345') {
-        ctx.response.body = `<h1>Welcome, ${name}!</h1>`;
-    } else {
-        ctx.response.body = `<h1>Login failed!</h1>
-        <p><a href="/">Try again</a></p>`;
-    }
+var Pet = sequelize.define('pet', {
+    id: {
+        type: Sequelize.STRING(50),
+        primaryKey: true
+    },
+    name: Sequelize.STRING(100),
+    gender: Sequelize.BOOLEAN,
+    birth: Sequelize.STRING(10),
+    createdAt: Sequelize.BIGINT,
+    updatedAt: Sequelize.BIGINT,
+    version: Sequelize.BIGINT
+}, {
+        timestamps: false
+    });
+
+var fn_index = async (ctx, next) => {
+    var pets = await Pet.findAll({
+        where: {
+            name: 'Gaffey'
+        }
+    });
+    ctx.response.body = pets
 };
 
 module.exports = {
-    'GET /': fn_index,
-    'POST /signin': fn_signin
+    'GET /': fn_index
 };

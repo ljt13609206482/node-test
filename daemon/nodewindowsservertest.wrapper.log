@@ -1,2 +1,0 @@
-2019-09-18 15:13:51 - Starting C:\Program Files\nodejs\node.exe  --harmony --max_old_space_size=4096 D:\work\test\node-test\node_modules\node-windows\lib\wrapper.js --file D:\work\test\node-test\index.js --log "node windows server test wrapper" --grow 0.25 --wait 1 --maxrestarts 3 --abortonerror n --stopparentfirst undefined
-2019-09-18 15:13:51 - Started 11092
