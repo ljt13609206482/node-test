@@ -23,7 +23,7 @@
         "koa-router": "7.0.0",
         "koa-sslify": "^4.0.3",
         "node-windows": "^0.1.14",
-        "sequelize": "3.24.1",
+        "sequelize": "5.15.1",
         "mysql": "2.11.1"
     }
 }
